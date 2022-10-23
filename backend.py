@@ -13,3 +13,6 @@ app = Flask(__name__)
 @app.route("/")
 def marino_data():
     return gym_info_to_dict(filter_last_week())
+
+if __name__ == "__main__":
+    app.run()
