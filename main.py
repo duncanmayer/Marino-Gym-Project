@@ -2,8 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 import re
 import csv
-from datetime import datetime
-
+from datetime import datetime, timedelta, date
+from dataclasses import dataclass
 
 url = "https://connect2concepts.com/connect2/?type=circle&key=2A2BE0D8-DF10-4A48-BEDD-B3BC0CD628E7"
 
@@ -21,22 +21,41 @@ else:
 soup = BeautifulSoup(response.content, 'html.parser')
 
 
+# A data class representing gym information
+@dataclass
 class GymInfo:
-    def __init__(self, location, count, date, time):
-        self.location = location
-        self.count = count
-        self.date = date
-        self.time = time
+    location: str
+    count: int
+    date: str
+    time: str
 
 
+# csv_file of gym data with duplicates -> list of unique gym info pieces
+# Opening the csv file in this Python project, and returning a list
+def uniques():
+    non_duplicate_gym_info = []
 
-now = datetime.now()
+    file = open("csv_file.csv", 'r')
+
+    for line in file:
+        oneLineInfo = line.strip().split(',')
+        oneLineToGymInfo = GymInfo(oneLineInfo[0], oneLineInfo[1], oneLineInfo[2], oneLineInfo[3])
+
+        if oneLineToGymInfo not in non_duplicate_gym_info:
+            non_duplicate_gym_info.append(oneLineToGymInfo)
+
+    return non_duplicate_gym_info
+
+
+unique_data = uniques()
+
 
 def web_data_to_class(data):
-
     f = open('csv_file.csv', 'a')
 
     writer = csv.writer(f)
+
+    now = datetime.now()
 
     locations = ["Marino Second Floor",
                  "Marino Gymnasium",
@@ -48,17 +67,14 @@ def web_data_to_class(data):
     date_updated = pull_date_updated(soup.get_text())
     time_updated = pull_time_updated(soup.get_text())
 
-    for i in range(6):
-        writer.writerow([locations[i], facility_count[i], date_updated[i], time_updated[i], now.strftime("%Y-%m-%d %H:%M:%S")]);
+    # for i in range(6):
+    #     writer.writerow(
+    #         [locations[i], facility_count[i], date_updated[i], time_updated[i], now.strftime("%Y-%m-%d %H:%M:%S")])
 
     f.close()
 
 
-
-
-
-
-
+# web data -> str
 # gets facility count data from scrape, in order goes
 # 2nd Floor, Gym, 3rd Floor Weights, 3rd Floor Cardio, Track, 4th Floor Squash,
 def pull_facility_count(data):
@@ -72,6 +88,7 @@ def pull_facility_count(data):
     return count_list
 
 
+# web data -> str
 # Pulls the dates of the different counts updating
 def pull_date_updated(data):
     date_list = []
@@ -84,6 +101,8 @@ def pull_date_updated(data):
     return date_list
 
 
+# web data -> str
+# Pulls the time of the different counts being updated
 def pull_time_updated(data):
     time_list = []
     pattern = re.compile(r'Updated: \d+\/\d+\/\d+.*')
@@ -98,6 +117,61 @@ def pull_time_updated(data):
 
 web_data_to_class(soup.get_text())
 
-print(pull_facility_count(soup.get_text()))
-print(pull_date_updated(soup.get_text()))
-print(pull_time_updated(soup.get_text()))
+
+# find all data points of a specific gym floor each day
+def find_all_at_location(gym_location):
+    dataset = unique_data
+    all_at_location = []
+
+    for i in range(len(dataset)):
+        if gym_location == dataset[i].location:
+            all_at_location.append(dataset[i])
+
+    return all_at_location
+
+
+# find average per day in a specific gym location
+def find_average_on_day(gym_location, date):
+    dataset = find_all_at_location(gym_location)
+    occupancy_tally = 0
+    index = 0
+
+    for i in range(len(dataset)):
+        if date == dataset[i].date:
+            occupancy_tally = occupancy_tally + int(dataset[i].count)
+            index = index + 1
+            print(dataset[i])
+
+    print(occupancy_tally / index)
+
+# takes a given amount of gym-info and coverts it into Dict.  We pass in the data instead of feeding
+# it the uniques list because we call this in backend.py, where uniques array is undefined
+def gym_info_to_dict(gym_data):
+    dict_list = []
+    for g in gym_data:
+        Dict = {'Location': g.location, 'Count': g.count, 'Date': g.date, 'Time': g.time}
+        dict_list.append(Dict)
+
+    return dict_list
+
+
+# go back 7 days from most recent datapoint
+def filter_last_week():
+    dataset = unique_data
+    last_week_list = []
+
+    # in datetime you can add and substract dates
+
+    most_recent_date = date.fromisoformat(
+        datetime.strptime(dataset[len(dataset) - 1].date, "%m/%d/%Y").strftime('%Y-%m-%d'))
+    # used to subtract a week from most_recent
+    delta = timedelta(7)
+    one_week_ago = most_recent_date - delta
+
+    # later dates are 'greater' than earlier dates
+    for gym_data in dataset:
+        gym_data_date = date.fromisoformat(datetime.strptime(gym_data.date, "%m/%d/%Y").strftime('%Y-%m-%d'))
+        if gym_data_date >= one_week_ago:
+            last_week_list.append(gym_data)
+
+    return last_week_list
