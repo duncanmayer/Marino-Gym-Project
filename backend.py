@@ -15,4 +15,4 @@ def marino_data():
     return gym_info_to_dict(filter_last_week())
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="54.152.20.175")
