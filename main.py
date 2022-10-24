@@ -67,9 +67,9 @@ def web_data_to_class(data):
     date_updated = pull_date_updated(soup.get_text())
     time_updated = pull_time_updated(soup.get_text())
 
-    # for i in range(6):
-    #     writer.writerow(
-    #         [locations[i], facility_count[i], date_updated[i], time_updated[i], now.strftime("%Y-%m-%d %H:%M:%S")])
+    for i in range(6):
+        writer.writerow(
+            [locations[i], facility_count[i], date_updated[i], time_updated[i], now.strftime("%Y-%m-%d %H:%M:%S")])
 
     f.close()
 
