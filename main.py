@@ -30,6 +30,10 @@ class GymInfo:
     time: str
 
 
+# List of days used to assist in DateTime's .weekday function, as it returns an int
+weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+
 # csv_file of gym data with duplicates -> list of unique gym info pieces
 # Opening the csv file in this Python project, and returning a list
 def uniques():
@@ -38,18 +42,20 @@ def uniques():
     file = open("csv_file.csv", 'r')
 
     for line in file:
-        oneLineInfo = line.strip().split(',')
-        oneLineToGymInfo = GymInfo(oneLineInfo[0], oneLineInfo[1], oneLineInfo[2], oneLineInfo[3])
+        one_line_info = line.strip().split(',')
+        one_line_to_gym_info = GymInfo(one_line_info[0], int(one_line_info[1]), one_line_info[2], one_line_info[3])
 
-        if oneLineToGymInfo not in non_duplicate_gym_info:
-            non_duplicate_gym_info.append(oneLineToGymInfo)
+        if one_line_to_gym_info not in non_duplicate_gym_info:
+            non_duplicate_gym_info.append(one_line_to_gym_info)
 
     return non_duplicate_gym_info
 
 
+# references throughout method
 unique_data = uniques()
 
 
+# Writes to a CSV file the specifically relevant information regarding Marino Floor data.
 def web_data_to_class(data):
     f = open('csv_file.csv', 'a')
 
@@ -67,15 +73,15 @@ def web_data_to_class(data):
     date_updated = pull_date_updated(soup.get_text())
     time_updated = pull_time_updated(soup.get_text())
 
-    # for i in range(6):
-    #     writer.writerow(
-    #         [locations[i], facility_count[i], date_updated[i], time_updated[i], now.strftime("%Y-%m-%d %H:%M:%S")])
+    for i in range(6):
+        writer.writerow(
+            [locations[i], facility_count[i], date_updated[i], time_updated[i], now.strftime("%Y-%m-%d %H:%M:%S")])
 
     f.close()
 
 
 # web data -> str
-# gets facility count data from scrape, in order goes
+# gets facility count data from scrape, in order goes...
 # 2nd Floor, Gym, 3rd Floor Weights, 3rd Floor Cardio, Track, 4th Floor Squash,
 def pull_facility_count(data):
     count_list = []
@@ -92,7 +98,7 @@ def pull_facility_count(data):
 # Pulls the dates of the different counts updating
 def pull_date_updated(data):
     date_list = []
-    pattern = re.compile(r'Updated: \d+\/\d+\/\d+.*')
+    pattern = re.compile(r'Updated: \d+\d+\d+.*')
     matches = re.findall(pattern, data)
 
     for m in matches:
@@ -105,7 +111,7 @@ def pull_date_updated(data):
 # Pulls the time of the different counts being updated
 def pull_time_updated(data):
     time_list = []
-    pattern = re.compile(r'Updated: \d+\/\d+\/\d+.*')
+    pattern = re.compile(r'Updated: \d+\d+\d+.*')
     matches = re.findall(pattern, data)
 
     for m in matches:
@@ -113,9 +119,6 @@ def pull_time_updated(data):
         time_list.append(m[20:length])
 
     return time_list
-
-
-web_data_to_class(soup.get_text())
 
 
 # find all data points of a specific gym floor each day
@@ -144,15 +147,20 @@ def find_average_on_day(gym_location, date):
 
     print(occupancy_tally / index)
 
+
 # takes a given amount of gym-info and coverts it into Dict.  We pass in the data instead of feeding
 # it the uniques list because we call this in backend.py, where uniques array is undefined
 def gym_info_to_dict(gym_data):
-    dict_list = []
+    gym_list = []
     for g in gym_data:
-        Dict = {'Location': g.location, 'Count': g.count, 'Date': g.date, 'Time': g.time}
-        dict_list.append(Dict)
+        most_recent_date = date.fromisoformat(
+            datetime.strptime(g.date, "%m/%d/%Y").strftime('%Y-%m-%d'))
 
-    return dict_list
+        gym_dict = {'Location': g.location, 'Count': g.count, 'Date': g.date, 'Time': g.time,
+                    'Weekday': weekdays[most_recent_date.weekday()]}
+        gym_list.append(gym_dict)
+
+    return gym_list
 
 
 # go back 7 days from most recent datapoint
