@@ -1266,7 +1266,7 @@ fetch('http://54.152.20.175:5000/')
         ];
 
         var layout = {
-            title: 'Marino Center 3rd Floor Weight Room Average Capacity Count',
+            title: 'Marino Center 3rd Floor Weight Room Average Capacity',
         };
 
         const config = {
