@@ -1234,18 +1234,44 @@ fetch('http://54.152.20.175:5000/')
                      sun12pmAvg, sun1pmAvg, sun2pmAvg, sun3pmAvg, sun4pmAvg, sun5pmAvg, sun6pmAvg,
                      sun7pmAvg, sun8pmAvg, sun9pmAvg, sun10pmAvg, sun11pmAvg, sun12amAvg],
                 ],
-                colorscale: 'YlOrRd',
+                colorscale: [
+                    ['0.00', 'rgb(255,110,110)'],
+                    ['0.05', 'rgb(248,105,105)'],
+                    ['0.10', 'rgb(241,100,100)'],
+                    ['0.15', 'rgb(234,95,95)'],
+                    ['0.20', 'rgb(227,90,90)'],
+                    ['0.25', 'rgb(220,85,85)'],
+                    ['0.30', 'rgb(213,80,80)'],
+                    ['0.35', 'rgb(206,75,75)'],
+                    ['0.40', 'rgb(199,70,70)'],
+                    ['0.45', 'rgb(192,65,65)'],
+                    ['0.50', 'rgb(185,60,60)'],
+                    ['0.55', 'rgb(178,55,55)'],
+                    ['0.60', 'rgb(171,50,50)'],
+                    ['0.65', 'rgb(164,45,45)'],
+                    ['0.70', 'rgb(157,40,40)'],
+                    ['0.75', 'rgb(150,35,35)'],
+                    ['0.80', 'rgb(143,30,30)'],
+                    ['0.85', 'rgb(136,25,25)'],
+                    ['0.90', 'rgb(129,20,20)'],
+                    ['0.95', 'rgb(122,15,15)'],
+                    ['1.0', 'rgb(115,10,10)']
+                ],
                 type: 'heatmap',
+                hovertemplate: '<b>%{y}:</b> %{x}<br>' + 'Average Count: %{z}<extra></extra>',
+                hoverlabel: {
+                    bgcolor: 'rgb(35, 35, 45)',
+                },
             }
         ];
 
         var layout = {
-            title: 'Marino Center Track',
-            legend: {
-                title: 'Average Capacity Count'
-            },
-            autosize: true
+            title: 'Marino Center Track Average Capacity Count',
         };
 
-        Plotly.newPlot('marino-track', data, layout);
+        const config = {
+            displayModeBar: false,
+        };
+
+        Plotly.newPlot('marino-track', data, layout, config);
     });
