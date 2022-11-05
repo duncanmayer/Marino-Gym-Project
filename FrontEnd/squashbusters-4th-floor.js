@@ -1267,7 +1267,7 @@ fetch('http://54.152.20.175:5000/')
 
         var layout = {
             title: {
-                text: 'SquashBusters 4th Floor Average Capacity Count',
+                text: 'SquashBusters 4th Floor Average Capacity',
 
             }
         };
