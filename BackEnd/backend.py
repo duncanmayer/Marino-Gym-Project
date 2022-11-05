@@ -1,14 +1,10 @@
 from flask import Flask
+from flask_cors import CORS
 
-from main import GymInfo, gym_info_to_dict, uniques, filter_last_week
+from main import gym_info_to_dict, filter_last_week
 
 app = Flask(__name__)
-
-
-# @app.route("/")
-# def hello_world():
-#     return "<p>Hello, World!</p>"
-
+CORS(app)
 
 @app.route("/")
 def marino_data():
