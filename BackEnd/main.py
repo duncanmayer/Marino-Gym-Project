@@ -8,8 +8,7 @@ from dataclasses import dataclass
 url = "https://connect2concepts.com/connect2/?type=circle&key=2A2BE0D8-DF10-4A48-BEDD-B3BC0CD628E7"
 
 headers = {
-    # Looks like the site probably blocks commonly used User-Agent headers for scraping,
-    # but it takes garbage just fine :)
+    # Looks like the site probably blocks commonly used User-Agent headers for scraping, but it takes garbage just fine :)
     "User-Agent": "XY"
 }
 response = requests.post(url, headers=headers, allow_redirects=False)
@@ -21,6 +20,7 @@ else:
 
 soup = BeautifulSoup(response.content, 'html.parser')
 
+weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
 # A data class representing gym information
 @dataclass
@@ -31,10 +31,6 @@ class GymInfo:
     time: str
 
 
-# List of days used to assist in DateTime's .weekday function, as it returns an int
-weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-
-
 # csv_file of gym data with duplicates -> list of unique gym info pieces
 # Opening the csv file in this Python project, and returning a list
 def uniques():
@@ -43,20 +39,18 @@ def uniques():
     file = open("csv_file.csv", 'r')
 
     for line in file:
-        one_line_info = line.strip().split(',')
-        one_line_to_gym_info = GymInfo(one_line_info[0], int(one_line_info[1]), one_line_info[2], one_line_info[3])
+        oneLineInfo = line.strip().split(',')
+        oneLineToGymInfo = GymInfo(oneLineInfo[0], oneLineInfo[1], oneLineInfo[2], oneLineInfo[3])
 
-        if one_line_to_gym_info not in non_duplicate_gym_info:
-            non_duplicate_gym_info.append(one_line_to_gym_info)
+        if oneLineToGymInfo not in non_duplicate_gym_info:
+            non_duplicate_gym_info.append(oneLineToGymInfo)
 
     return non_duplicate_gym_info
 
 
-# references throughout method
 unique_data = uniques()
 
 
-# Writes to a CSV file the specifically relevant information regarding Marino Floor data.
 def web_data_to_class():
     f = open('csv_file.csv', 'a')
 
@@ -82,7 +76,7 @@ def web_data_to_class():
 
 
 # web data -> str
-# gets facility count data from scrape, in order goes...
+# gets facility count data from scrape, in order goes
 # 2nd Floor, Gym, 3rd Floor Weights, 3rd Floor Cardio, Track, 4th Floor Squash,
 def pull_facility_count(data):
     count_list = []
@@ -99,7 +93,7 @@ def pull_facility_count(data):
 # Pulls the dates of the different counts updating
 def pull_date_updated(data):
     date_list = []
-    pattern = re.compile(r'Updated: \d+\d+\d+.*')
+    pattern = re.compile(r'Updated: \d+\/\d+\/\d+.*')
     matches = re.findall(pattern, data)
 
     for m in matches:
@@ -112,7 +106,7 @@ def pull_date_updated(data):
 # Pulls the time of the different counts being updated
 def pull_time_updated(data):
     time_list = []
-    pattern = re.compile(r'Updated: \d+\d+\d+.*')
+    pattern = re.compile(r'Updated: \d+\/\d+\/\d+.*')
     matches = re.findall(pattern, data)
 
     for m in matches:
@@ -120,6 +114,9 @@ def pull_time_updated(data):
         time_list.append(m[20:length])
 
     return time_list
+
+
+web_data_to_class()
 
 
 # find all data points of a specific gym floor each day
@@ -148,20 +145,18 @@ def find_average_on_day(gym_location, date):
 
     print(occupancy_tally / index)
 
-
 # takes a given amount of gym-info and coverts it into Dict.  We pass in the data instead of feeding
 # it the uniques list because we call this in backend.py, where uniques array is undefined
 def gym_info_to_dict(gym_data):
-    gym_list = []
+    dict_list = []
     for g in gym_data:
         most_recent_date = date.fromisoformat(
             datetime.strptime(g.date, "%m/%d/%Y").strftime('%Y-%m-%d'))
+        Dict = {'Location': g.location, 'Count': g.count, 'Date': g.date, 'Time': g.time,
+                'Weekday': weekdays[most_recent_date.weekday()]}
+        dict_list.append(Dict)
 
-        gym_dict = {'Location': g.location, 'Count': g.count, 'Date': g.date, 'Time': g.time,
-                    'Weekday': weekdays[most_recent_date.weekday()]}
-        gym_list.append(gym_dict)
-
-    return gym_list
+    return dict_list
 
 
 # go back 7 days from most recent datapoint
@@ -185,4 +180,3 @@ def filter_last_week():
 
     return last_week_list
 
-web_data_to_class()
