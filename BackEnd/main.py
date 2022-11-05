@@ -57,7 +57,7 @@ unique_data = uniques()
 
 
 # Writes to a CSV file the specifically relevant information regarding Marino Floor data.
-def web_data_to_class(data):
+def web_data_to_class():
     f = open('csv_file.csv', 'a')
 
     writer = csv.writer(f)
@@ -184,3 +184,5 @@ def filter_last_week():
             last_week_list.append(gym_data)
 
     return last_week_list
+
+web_data_to_class()
