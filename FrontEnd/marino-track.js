@@ -1266,7 +1266,7 @@ fetch('http://54.152.20.175:5000/')
         ];
 
         var layout = {
-            title: 'Marino Center Track Average Capacity Count',
+            title: 'Marino Center Track Average Capacity',
         };
 
         const config = {
