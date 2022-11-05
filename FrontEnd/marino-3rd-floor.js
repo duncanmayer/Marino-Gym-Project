@@ -1,25 +1,25 @@
 fetch('http://54.152.20.175:5000/')
     .then((response) => response.json())
     .then((json) => {
-        let sun = json.filter((item) => item.Location === 'Marino Second Floor'
+        let sun = json.filter((item) => item.Location === 'Marino Third Floor Cardio'
                                         && item.Weekday === 'Sunday'
         );
-        let mon = json.filter((item) => item.Location === 'Marino Second Floor'
+        let mon = json.filter((item) => item.Location === 'Marino Third Floor Cardio'
                                         && item.Weekday === 'Monday'
         );
-        let tue = json.filter((item) => item.Location === 'Marino Second Floor'
+        let tue = json.filter((item) => item.Location === 'Marino Third Floor Cardio'
                                         && item.Weekday === 'Tuesday'
         );
-        let wed = json.filter((item) => item.Location === 'Marino Second Floor'
+        let wed = json.filter((item) => item.Location === 'Marino Third Floor Cardio'
                                         && item.Weekday === 'Wednesday'
         );
-        let thu = json.filter((item) => item.Location === 'Marino Second Floor'
+        let thu = json.filter((item) => item.Location === 'Marino Third Floor Cardio'
                                         && item.Weekday === 'Thursday'
         );
-        let fri = json.filter((item) => item.Location === 'Marino Second Floor'
+        let fri = json.filter((item) => item.Location === 'Marino Third Floor Cardio'
                                         && item.Weekday === 'Friday'
         );
-        let sat = json.filter((item) => item.Location === 'Marino Second Floor'
+        let sat = json.filter((item) => item.Location === 'Marino Third Floor Cardio'
                                         && item.Weekday === 'Saturday'
         );
 
@@ -1240,12 +1240,12 @@ fetch('http://54.152.20.175:5000/')
         ];
 
         var layout = {
-            title: 'Marino Center- 2nd Floor',
+            title: 'Marino Center- 3rd Floor Select & Cardio',
             legend: {
                 title: 'Average Capacity Count'
             },
             autosize: true
         };
 
-        Plotly.newPlot('marino-2nd-floor', data, layout);
+        Plotly.newPlot('marino-3rd-floor', data, layout);
     });
