@@ -1257,13 +1257,17 @@ fetch('http://54.152.20.175:5000/')
                     ['0.95', 'rgb(122,15,15)'],
                     ['1.0', 'rgb(115,10,10)']
                 ],
-                type: 'heatmap',
-                hovertemplate: '<b>%{y}:</b> %{x}<br>' + 'Average Count: %{z}<extra></extra>',
-                hoverlabel: {
-                    bgcolor: 'rgb(35, 35, 45)',
-                },
+                    type: 'heatmap',
+                    hovertemplate: '<b>%{y}:</b> %{x}<br>' + 'Average Count: %{z}<extra></extra>',
+                    hoverlabel: {
+                            bgcolor: 'rgb(35, 35, 45)',
+                    },
             }
         ];
+
+        var layout = {
+            title: 'Marino Center 3rd Floor Average Capacity Count',
+        };
 
         const config = {
             displayModeBar: false,
