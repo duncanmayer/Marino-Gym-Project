@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9e35db9e-cc97-4370-af6f-5b77247ebc85" name="Changes" comment="adjusting page size for graphs page">
+      <change beforePath="$PROJECT_DIR$/BackEnd/backend.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/backend.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GY3wrHhbx22t4KcExLrfztyG3l" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9e35db9e-cc97-4370-af6f-5b77247ebc85" name="Changes" comment="" />
+      <created>1666551932404</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666551932404</updated>
+      <workItem from="1666551934300" duration="9120000" />
+      <workItem from="1667350939040" duration="870000" />
+      <workItem from="1667351855325" duration="1283000" />
+      <workItem from="1667405378756" duration="26512000" />
+      <workItem from="1667613846742" duration="1415000" />
+    </task>
+    <task id="LOCAL-00001" summary="improving home page">
+      <created>1666556094496</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666556094496</updated>
+    </task>
+    <task id="LOCAL-00002" summary="improving home page footer">
+      <created>1666556167516</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666556167516</updated>
+    </task>
+    <task id="LOCAL-00003" summary="improving home page part 2">
+      <created>1666557555772</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666557555772</updated>
+    </task>
+    <task id="LOCAL-00004" summary="home logo addition">
+      <created>1666562545822</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666562545822</updated>
+    </task>
+    <task id="LOCAL-00005" summary="style changes">
+      <created>1667600017172</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667600017172</updated>
+    </task>
+    <task id="LOCAL-00006" summary="more UI improvements">
+      <created>1667608895632</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667608895634</updated>
+    </task>
+    <task id="LOCAL-00007" summary="removing calendar">
+      <created>1667609809379</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667609809379</updated>
+    </task>
+    <task id="LOCAL-00008" summary="adjusting page size for graphs page">
+      <created>1667609962430</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667609962430</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="improving home page" />
+    <MESSAGE value="improving home page footer" />
+    <MESSAGE value="improving home page part 2" />
+    <MESSAGE value="home logo addition" />
+    <MESSAGE value="style changes" />
+    <MESSAGE value="more UI improvements" />
+    <MESSAGE value="removing calendar" />
+    <MESSAGE value="adjusting page size for graphs page" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjusting page size for graphs page" />
+  </component>
+</project>
