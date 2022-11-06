@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e35db9e-cc97-4370-af6f-5b77247ebc85" name="Changes" comment="adjusting page size for graphs page">
-      <change beforePath="$PROJECT_DIR$/BackEnd/backend.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/backend.py" afterDir="false" />
+    <list default="true" id="9e35db9e-cc97-4370-af6f-5b77247ebc85" name="Changes" comment="import changes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/templates/Marino2ndFloor.html" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/templates/Marino2ndFloor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/templates/Marino3rdFloorSelect.html" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/templates/Marino3rdFloorSelect.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/templates/Marino3rdFloorWeights.html" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/templates/Marino3rdFloorWeights.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/templates/MarinoGymnasium.html" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/templates/MarinoGymnasium.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/templates/MarinoTrack.html" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/templates/MarinoTrack.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/templates/SquashBusters4thFloor.html" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/templates/SquashBusters4thFloor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/templates/graphs.html" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/templates/graphs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +64,7 @@
       <workItem from="1667350939040" duration="870000" />
       <workItem from="1667351855325" duration="1283000" />
       <workItem from="1667405378756" duration="26512000" />
-      <workItem from="1667613846742" duration="1415000" />
+      <workItem from="1667613846742" duration="2522000" />
     </task>
     <task id="LOCAL-00001" summary="improving home page">
       <created>1666556094496</created>
@@ -114,7 +122,28 @@
       <option name="project" value="LOCAL" />
       <updated>1667609962430</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="backend automation changes">
+      <created>1667759487349</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667759487349</updated>
+    </task>
+    <task id="LOCAL-00010" summary="backend automation changes p2">
+      <created>1667759567036</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1667759567036</updated>
+    </task>
+    <task id="LOCAL-00011" summary="import changes">
+      <created>1667759994304</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1667759994304</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +169,9 @@
     <MESSAGE value="more UI improvements" />
     <MESSAGE value="removing calendar" />
     <MESSAGE value="adjusting page size for graphs page" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjusting page size for graphs page" />
+    <MESSAGE value="backend automation changes" />
+    <MESSAGE value="backend automation changes p2" />
+    <MESSAGE value="import changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="import changes" />
   </component>
 </project>
