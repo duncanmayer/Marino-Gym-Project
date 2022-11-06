@@ -11,7 +11,7 @@ def marino_data():
     return gym_info_to_dict(filter_last_week())
 
 @app.route("/home")
-def display_home():
+def display_home(name=None):
     return render_template('home.html', name)
 
 if __name__ == "__main__":
