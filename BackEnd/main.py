@@ -1,3 +1,4 @@
+from os import path
 from bs4 import BeautifulSoup
 import requests
 import re
@@ -35,8 +36,10 @@ class GymInfo:
 # Opening the csv file in this Python project, and returning a list
 def uniques():
     non_duplicate_gym_info = []
+    
+    file_path = path.relpath("/home/ubuntu/BackEnd/csv_file.csv")
+    file = open(file_path, 'r')
 
-    file = open("csv_file.csv", 'r')
 
     for line in file:
         oneLineInfo = line.strip().split(',')
@@ -52,7 +55,9 @@ unique_data = uniques()
 
 
 def web_data_to_class():
-    f = open('csv_file.csv', 'a')
+    file_path = path.relpath("/home/ubuntu/BackEnd/csv_file.csv")
+    f = open(file_path, 'a')
+
 
     writer = csv.writer(f)
 
