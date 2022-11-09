@@ -15,31 +15,31 @@ def display_home():
     return render_template('home.html')
 
 @app.route("/graph")
-def display_home():
+def display_graph():
     return render_template('graphs.html')
 
 @app.route("/graph/Marino2nd")
-def display_home():
+def display_Marino2nd():
     return render_template('Marino2ndFloor.html')
 
 @app.route("/graph/Marino3rdSelect")
-def display_home():
+def display_Marino3rdSelect():
     return render_template('Marino3rdFloorSelect.html')
 
 @app.route("/graph/Marino3rdWeight")
-def display_home():
+def display_Marino3rdWeight():
     return render_template('Marino3rdFloorWeights.html')
 
 @app.route("/graph/MarinoGym")
-def display_home():
+def display_MarinoGym():
     return render_template('MarinoGymnasium.html')
 
 @app.route("/graph/MarinoTrack")
-def display_home():
+def display_MarinoTrack():
     return render_template('MarinoTrack.html')
 
 @app.route("/graph/SB4thFloor")
-def display_home():
+def display_SB4thFloor():
     return render_template('SquashBusters4thFloor.html')
 
 
