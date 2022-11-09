@@ -10,7 +10,7 @@ CORS(app)
 def marino_data():
     return gym_info_to_dict(filter_last_week())
 
-@app.route("/home")
+@app.route("/home/")
 def display_home():
     return render_template('home.html')
 
