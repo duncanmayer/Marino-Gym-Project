@@ -174,7 +174,7 @@ def filter_last_week():
     most_recent_date = date.fromisoformat(
         datetime.strptime(dataset[len(dataset) - 1].date, "%m/%d/%Y").strftime('%Y-%m-%d'))
     # used to subtract a week from most_recent
-    delta = timedelta(7)
+    delta = timedelta(14)
     one_week_ago = most_recent_date - delta
 
     # later dates are 'greater' than earlier dates
